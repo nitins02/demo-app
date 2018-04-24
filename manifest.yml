@@ -1,0 +1,11 @@
+applications:
+- path: .
+  buildpack: sdk-for-nodejs
+  no-route: false
+  memory: 128M
+  instances: 1
+  name: my-demo-app-assingment
+  host: my-demo-app-assingment
+  services:
+   - demo-app-cloudant-db
+disk_quota: 256M

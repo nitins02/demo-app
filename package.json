@@ -1,0 +1,22 @@
+{
+  "name": "demo-app",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@cloudant/cloudant": "^2.1.0",
+    "body-parser": "^1.8.3",
+    "bootstrap": "^4.1.0",
+    "cookie-parser": "~1.4.3",
+    "dotenv": "~2.0.0",
+    "express": "^4.9.4",
+    "jquery": "^3.3.1",
+    "swagger-tools": "^0.10.1",
+    "tether": "^1.4.4"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.5.3"
+  }
+}

@@ -1,0 +1,11 @@
+# Dependency directories
+node_modules
+webapp/node_modules
+
+# Build directories
+public
+
+# Logs
+logs
+*.log
+npm-debug.log*

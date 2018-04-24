@@ -1,0 +1,152 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"title": "API's",
+		"description": "Demp APPs",
+		"version": "1.0"
+	},
+	"produces": [
+		"application/json"
+	],
+	"basePath": "/demoapp",
+	"paths": {
+		"/equipment": {
+			"post": {
+				"x-swagger-router-controller": "equipment",
+				"summary": "Add equipment",
+        "description": "Add equipment",
+				"operationId": "addEquipment",
+				"tags": [
+					"Equipment"
+				],
+				"parameters": [
+					{
+						"name": "equipment",
+						"in": "body",
+						"description": "equipment detail",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/Equipment"
+						}
+					}
+				],
+				"responses": {
+					"default": {
+						"description": "Invalid request.",
+						"schema": {
+							"$ref": "#/definitions/Error"
+						}
+					},
+					"200": {
+						"description": "Successful request.",
+						"schema": {
+							"$ref": "#/definitions/Equipment"
+						}
+					}
+				}
+			}
+		},
+		"/equipment/search": {
+			"get": {
+				"x-swagger-router-controller": "equipment",
+				"operationId": "searchEquipment",
+				"tags": [
+					"Equipment"
+				],
+				"summary": "Search equipment",
+				"description": "Search equipments",
+				"parameters": [
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "limit the results",
+						"required": true,
+						"type": "number"
+					}
+				],
+				"responses": {
+					"default": {
+						"description": "Invalid request.",
+						"schema": {
+							"$ref": "#/definitions/Error"
+						}
+					},
+					"200": {
+						"description": "Successful request.",
+						"schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Equipment"
+              }
+            }
+					}
+				}
+			}
+		},
+		"/equipment/{equipmentNumber}": {
+			"get": {
+				"x-swagger-router-controller": "equipment",
+				"operationId": "getEquipment",
+				"tags": [
+					"Equipment"
+				],
+				"summary": "Get equipments",
+				"description": "Get equipments",
+				"parameters": [
+					{
+						"name": "equipmentNumber",
+						"in": "path",
+						"description": "equipment detail",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"default": {
+						"description": "Invalid request.",
+						"schema": {
+							"$ref": "#/definitions/Error"
+						}
+					},
+					"200": {
+						"description": "Successful request.",
+						"schema": {
+              "$ref": "#/definitions/Equipment"
+            }
+					}
+				}
+			}
+		}
+	},
+	"definitions": {
+		"Equipment": {
+			"properties": {
+				"equipmentNumber": {
+					"type": "string"
+				},
+				"address": {
+					"type": "string"
+				},
+				"startDate": {
+					"type": "string"
+				},
+				"endDate": {
+					"type": "string"
+				},
+				"status": {
+					"type": "string"
+				}
+			}
+		},
+		"Error": {
+			"properties": {
+				"message": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"message"
+			]
+		}
+	}
+}
